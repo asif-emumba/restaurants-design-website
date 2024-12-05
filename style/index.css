@@ -233,12 +233,12 @@ body {
   font-weight: 500;
   line-height: 30px;
 }
-.single-border-container {
+.facts-container {
   display: flex;
   flex-direction: row;
   justify-content: start;
 }
-.single-border {
+.facts {
   height: 65px;
   width: 100%;
   display: flex;
@@ -247,15 +247,7 @@ body {
   flex-direction: row;
   border-left: 6px solid #fea116;
 }
-.read-more {
-  width: 187px;
-  height: 56px;
-  justify-content: center;
-  align-items: center;
-  padding-top: 33px;
-  color: white;
-  background-color: #fea116;
-}
+
 .aboutus-info-content button {
   height: 56px;
   width: 187px;
@@ -438,6 +430,7 @@ body {
   font-weight: 500;
   padding-left: 12px;
 }
+
 .request-textarea {
   height: 98px;
   width: 100%;
@@ -459,7 +452,7 @@ body {
   margin-bottom: 96px;
   background-color: #ffffff;
 }
-.align-chef-content {
+.align-team-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
