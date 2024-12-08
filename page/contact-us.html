@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <!-- external style sheet -->
+    <link rel="stylesheet" href="../style/contact-us.css" />
+    <!-- custom font pacifico -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <!-- custom fonts poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- swal alert box  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body id="contact-us">
+    <section class="cover-container">
+      <div class="cover-overlay">
+        <div class="container align-cover-content">
+          <!-- header section -->
+          <header class="header-container">
+            <img src="../assets/logo.png" alt="logo" class="logo" />
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+              ☰
+            </button>
+            <nav class="header-navs">
+              <a href="../index.html#menu-section" class="menu-link">HOME</a>
+              <a href="#contact-us" class="contact-us">CONTACT</a>
+              <button
+                onclick="scrollToSection('reservation-form', '../index.html')"
+              >
+                Book A Table
+              </button>
+            </nav>
+          </header>
+          <!-- cover content -->
+          <div class="cover-content">
+            <h1>Contact Us</h1>
+            <nav class="contact-us-navs">
+              <a href="../index.html#menu-section">Home</a>
+              <div class="divider">/</div>
+              <a href="#contact">Contact</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact-us-section">
+      <div class="container contact-us-content">
+        <h4 class="pacifico-style">------ Contact Us ------</h4>
+        <h2>Contact For Any Query</h2>
+        <div class="email-info-content">
+          <div class="booking-email">
+            <h4 class="pacifico-style">Booking -----</h4>
+            <p>
+              <span class="mail-icon"
+                ><img src="../assets/email.png" alt="email icon"
+              /></span>
+              booking@example.com
+            </p>
+          </div>
+          <div class="booking-email">
+            <h4 class="pacifico-style">General -----</h4>
+            <p>
+              <span class="mail-icon"
+                ><img src="../assets/email.png" alt="email icon"
+              /></span>
+              general@example.com
+            </p>
+          </div>
+          <div class="booking-email">
+            <h4 class="pacifico-style">Technical -----</h4>
+            <p>
+              <span class="mail-icon"
+                ><img src="../assets/email.png" alt="email icon"
+              /></span>
+              tech@example.com
+            </p>
+          </div>
+        </div>
+        <div class="contact-information">
+          <div class="map-view">
+            <iframe
+              loading="lazy"
+              allowfullscreen
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=New%20York&zoom=10&maptype=roadmap"
+            ></iframe>
+          </div>
+          <form id="contact-form-submit" class="contact-form">
+            <div class="input-row">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                maxlength="50"
+                pattern="^[A-Za-z\s\-]+$"
+                placeholder="Name"
+              />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="Email"
+              />
+            </div>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              maxlength="100"
+              pattern="^[A-Za-z\s\-]+$"
+              placeholder="Subject"
+              class="subject-input"
+            />
+            <textarea
+              id="message"
+              name="message"
+              required
+              maxlength="250"
+              pattern="^[A-Za-z\s\-]+$"
+              class="message-textarea"
+              placeholder="Message"
+            ></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <button id="back-to-top-btn">
+      <img src="../assets/arrow-up.png" alt="arrow-up" />
+    </button>
+
+    <!-- footer -->
+    <footer class="footer-content">
+      <div class="container align-footer-content">
+        <p>© 2021 Restoran. All Rights Reserved.</p>
+        <div class="footer-navs">
+          <a href="../index.html#menu-section" class="menu">HOME</a>
+          <a href="#contact-us" class="contact-us">CONTACT</a>
+        </div>
+      </div>
+    </footer>
+    <!-- javascript file  -->
+    <script src="../javaScript/script.js"></script>
+    <script>
+      // contact us form submission
+      const contactForm = document.getElementById("contact-form-submit");
+
+      contactForm.addEventListener("submit", function (event) {
+        // Prevent default submission
+        event.preventDefault();
+
+        // Check if the contactForm is valid
+        if (contactForm.checkValidity()) {
+          Swal.fire({
+            title: "Contact Form Submitted!",
+            text: "Your message has been successfully sent.",
+            icon: "success",
+            showClass: {
+              popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                `,
+            },
+            hideClass: {
+              popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                `,
+            },
+            didClose: () => {
+              contactForm.submit(); // Submit the form after alert closes
+            },
+          });
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: "Please fill out the form correctly.",
+            icon: "error",
+            showClass: {
+              popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                `,
+            },
+            hideClass: {
+              popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                `,
+            },
+          });
+        }
+      });
+    </script>
+    <!-- custom alert script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

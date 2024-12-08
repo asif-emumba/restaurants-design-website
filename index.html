@@ -20,6 +20,15 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <!-- swal alert box  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body>
     <!-- cover section -->
@@ -30,10 +39,15 @@
           <!-- header section -->
           <header class="header-container">
             <img src="./assets/logo.png" alt="logo" class="logo" />
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+              ☰
+            </button>
             <nav class="header-navs">
-              <a href="#menu" class="menu-link">HOME</a>
-              <a href="#about" class="about-link">CONTACT</a>
-              <button>Book A Table</button>
+              <a href="#menu-section" class="menu-link">HOME</a>
+              <a href="./page/contact-us.html" class="contact-us">CONTACT</a>
+              <button onclick="scrollToSection('reservation-form')">
+                Book A Table
+              </button>
             </nav>
           </header>
           <!-- cover content -->
@@ -45,7 +59,9 @@
                 Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
                 sed stet lorem sit clita duo justo magna dolore erat amet
               </p>
-              <button>Book A Table</button>
+              <button onclick="scrollToSection('reservation-form')">
+                Book A Table
+              </button>
             </div>
             <div class="content-right">
               <img src="./assets/hero 1.png" alt="food plater" />
@@ -56,7 +72,7 @@
     </section>
 
     <!-- card section -->
-    <section class="card-container">
+    <section id="info-cards" class="card-container">
       <div class="container card-alignment">
         <div class="info-cards">
           <img src="./assets/chefs.png" alt="chef icon" />
@@ -98,23 +114,33 @@
     <section class="about-us-container">
       <div class="container about-us-content-align">
         <!-- grid section -->
-        <div class="aboutus-grid-content">
-          <img src="./assets/gird-1.png" alt="restoran-img-1" />
-          <img
-            src="./assets/grid-2.png"
-            alt="restoran-img-2"
-            class="align-end"
-          />
-          <img
-            src="./assets/grid-3.png"
-            alt="restoran-img-3"
-            class="align-start"
-          />
-          <img src="./assets/grid-4.png" alt="restoran-img-4" />
+        <div class="aboutus-grid-align">
+          <div class="aboutus-grid-content">
+            <img
+              src="./assets/gird-1.png"
+              alt="restoran-img-1"
+              class="aboutus-grid-content-img"
+            />
+            <img
+              src="./assets/grid-2.png"
+              alt="restoran-img-2"
+              class="align-end"
+            />
+            <img
+              src="./assets/grid-3.png"
+              alt="restoran-img-3"
+              class="align-start"
+            />
+            <img
+              src="./assets/grid-4.png"
+              alt="restoran-img-4"
+              class="aboutus-grid-content-img"
+            />
+          </div>
         </div>
 
         <!-- about us content section -->
-        <div class="aboutus-info-content">
+        <div id="about-us" class="aboutus-info-content">
           <h4>about Us -----</h4>
           <h2>
             Welcome to
@@ -132,61 +158,17 @@
           </p>
           <div class="facts-container">
             <div class="facts">
-              <h3
-                style="
-                  color: #fea116;
-                  font-size: 48px;
-                  font-weight: bold;
-                  align-self: flex-end;
-                  padding-left: 10px;
-                "
-              >
-                13
-              </h3>
-              <div
-                style="
-                  height: 100%;
-                  display: flex;
-                  flex-direction: column;
-                  align-items: start;
-                  justify-content: flex-end;
-                  margin-left: 24px;
-                "
-              >
+              <h3 class="facts-text">13</h3>
+              <div class="facts-text span">
                 <p>Years of</p>
-
-                <p style="color: black; font-weight: bold; font-size: 16">
-                  EXPERIENCE
-                </p>
+                <p class="facts-text-bold">EXPERIENCE</p>
               </div>
             </div>
             <div class="facts">
-              <h3
-                style="
-                  color: #fea116;
-                  font-size: 48px;
-                  font-weight: bold;
-                  align-self: flex-end;
-                  padding-left: 10px;
-                "
-              >
-                50
-              </h3>
-              <div
-                style="
-                  height: 100%;
-                  display: flex;
-                  flex-direction: column;
-                  align-items: start;
-                  justify-content: flex-end;
-                  margin-left: 24px;
-                "
-              >
+              <h3 class="facts-text">50</h3>
+              <div class="facts-text span">
                 <p>Popular</p>
-
-                <p style="color: black; font-weight: bold; font-size: 16">
-                  MASTER CHEFS
-                </p>
+                <p class="facts-text-bold">MASTER CHEFS</p>
               </div>
             </div>
           </div>
@@ -196,22 +178,17 @@
     </section>
 
     <!-- Popular items -->
-    <section class="popular-items-container">
+    <section id="menu-section" class="popular-items-container">
       <div class="container popular-items-content-align">
         <h2>Most Popular Items</h2>
-        <h4
-          style="
-            color: #fea116;
-            font-size: 20px;
-            font-weight: 500;
-            font-family: 'Pacifico', cursive;
-          "
-        >
-          ------ food menu ------
-        </h4>
+        <h4 class="pacifico-style">------ food menu ------</h4>
         <!-- tabs buttons -->
         <div class="food-tabs">
-          <div class="tabs-buttons">
+          <button
+            class="tabs-buttons"
+            id="tab-1"
+            onclick="openMenuSection(event, 'tab-content')"
+          >
             <img src="./assets/breakfast.png" alt="breakfast icon" />
             <div class="tab-button-content">
               <p>Popular</p>
@@ -219,8 +196,12 @@
                 Breakfast
               </p>
             </div>
-          </div>
-          <div class="tabs-buttons">
+          </button>
+          <button
+            class="tabs-buttons"
+            id="tab-1"
+            onclick="openMenuSection(event, 'lunch-content')"
+          >
             <img src="./assets/lunch-1.png" alt="lunch icon" />
             <div class="tab-button-content">
               <p>Special</p>
@@ -228,8 +209,12 @@
                 Lunch
               </p>
             </div>
-          </div>
-          <div class="tabs-buttons">
+          </button>
+          <button
+            class="tabs-buttons"
+            id="tab-1"
+            onclick="openMenuSection(event, 'tab-content')"
+          >
             <img src="./assets/dinner.png" alt="dinner icon" />
             <div class="tab-button-content">
               <p>Lovely</p>
@@ -237,11 +222,11 @@
                 Dinner
               </p>
             </div>
-          </div>
+          </button>
         </div>
 
         <!-- food list -->
-        <div class="main-menu">
+        <div id="tab-content" class="main-menu">
           <div class="side-menu">
             <div class="item-content">
               <img src="./assets/menu-1.jpg.png" alt="menu" />
@@ -320,6 +305,93 @@
               <div class="name-description">
                 <div class="name-price">
                   <h2>Chicken Burger</h2>
+                  <h3>$12.00</h3>
+                </div>
+                <p>Ipsum ipsum clita erat amet dolor justo diam</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- dinner  -->
+        <div id="lunch-content" class="main-menu">
+          <div class="side-menu">
+            <div class="item-content">
+              <img src="./assets/menu-1.jpg.png" alt="menu" />
+              <div class="name-description">
+                <div class="name-price">
+                  <h2>Cheese Burger</h2>
+                  <h3>$12.00</h3>
+                </div>
+                <p>Ipsum ipsum clita erat amet dolor justo diam</p>
+              </div>
+            </div>
+            <div class="item-content">
+              <img src="./assets/menu-1.jpg.png" alt="menu" />
+              <div class="name-description">
+                <div class="name-price">
+                  <h2>Cheese Burger</h2>
+                  <h3>$12.00</h3>
+                </div>
+                <p>Ipsum ipsum clita erat amet dolor justo diam</p>
+              </div>
+            </div>
+            <div class="item-content">
+              <img src="./assets/menu-1.jpg.png" alt="menu" />
+              <div class="name-description">
+                <div class="name-price">
+                  <h2>Cheese Burger</h2>
+                  <h3>$12.00</h3>
+                </div>
+                <p>Ipsum ipsum clita erat amet dolor justo diam</p>
+              </div>
+            </div>
+            <div class="item-content">
+              <img src="./assets/menu-1.jpg.png" alt="menu" />
+              <div class="name-description">
+                <div class="name-price">
+                  <h2>Cheese Burger</h2>
+                  <h3>$12.00</h3>
+                </div>
+                <p>Ipsum ipsum clita erat amet dolor justo diam</p>
+              </div>
+            </div>
+          </div>
+          <div class="side-menu">
+            <div class="item-content">
+              <img src="./assets/menu-1.jpg.png" alt="menu" />
+              <div class="name-description">
+                <div class="name-price">
+                  <h2>Cheese Burger</h2>
+                  <h3>$12.00</h3>
+                </div>
+                <p>Ipsum ipsum clita erat amet dolor justo diam</p>
+              </div>
+            </div>
+            <div class="item-content">
+              <img src="./assets/menu-1.jpg.png" alt="menu" />
+              <div class="name-description">
+                <div class="name-price">
+                  <h2>Cheese Burger</h2>
+                  <h3>$12.00</h3>
+                </div>
+                <p>Ipsum ipsum clita erat amet dolor justo diam</p>
+              </div>
+            </div>
+            <div class="item-content">
+              <img src="./assets/menu-1.jpg.png" alt="menu" />
+              <div class="name-description">
+                <div class="name-price">
+                  <h2>Cheese Burger</h2>
+                  <h3>$12.00</h3>
+                </div>
+                <p>Ipsum ipsum clita erat amet dolor justo diam</p>
+              </div>
+            </div>
+            <div class="item-content">
+              <img src="./assets/menu-1.jpg.png" alt="menu" />
+              <div class="name-description">
+                <div class="name-price">
+                  <h2>Cheese Burger</h2>
                   <h3>$12.00</h3>
                 </div>
                 <p>Ipsum ipsum clita erat amet dolor justo diam</p>
@@ -331,50 +403,63 @@
     </section>
 
     <!-- book a table -->
-    <section class="booking-content">
+    <section id="reservation-form" class="booking-content">
       <img src="./assets/booking.png" alt="couple image" />
       <!-- booking form -->
-      <form class="booking-form">
-        <h4
-          style="
-            color: #fea116;
-            font-size: 20px;
-            font-weight: 500;
-            font-family: 'Pacifico', cursive;
-          "
-        >
-          Reservation ------
-        </h4>
+      <form class="booking-form" id="booking-form">
+        <h4 class="pacifico-style">Reservation ------</h4>
         <h2>Book A Table Online</h2>
         <div class="input-row">
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            maxlength="50"
+            pattern="^[a-zA-Z\s-]+$"
+            required
+            placeholder="Enter your name"
+          />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+          />
         </div>
         <div class="input-row">
-          <input type="datetime" placeholder="Date & Time" />
-          <input type="email" placeholder="Email" />
+          <input
+            type="text"
+            id="datetime"
+            name="datetime"
+            required
+            placeholder="Date & Time DD/MM/YYYY HH:MM"
+            pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/(\d{4}) (0[0-9]|1[0-9]|2[0-3]):([0-5][0-9])$"
+          />
+          <input
+            list="dropdown"
+            id="options"
+            name="options"
+            placeholder="Select or type..."
+          />
+          <datalist id="dropdown">
+            <option value="Option 1"></option>
+            <option value="Option 2"></option>
+            <option value="Option 3"></option>
+          </datalist>
         </div>
         <textarea
           class="request-textarea"
           placeholder="Special Request"
         ></textarea>
-        <button>BOOK NOW</button>
+        <button type="submit">BOOK NOW</button>
       </form>
     </section>
 
     <!-- our team -->
     <section class="team-content">
       <div class="container align-team-content">
-        <h4
-          style="
-            color: #fea116;
-            font-size: 20px;
-            font-weight: 500;
-            font-family: 'Pacifico', cursive;
-          "
-        >
-          ------ Team members ------
-        </h4>
+        <h4 class="pacifico-style">------ Team members ------</h4>
         <h2>Our Master Chefs</h2>
         <div class="team-info-cards">
           <div class="team-card">
@@ -439,19 +524,8 @@
 
     <!-- testimonials -->
     <section class="testimonials-content">
-      <h4
-        style="
-          color: #fea116;
-          font-size: 20px;
-          font-weight: 500;
-          font-family: 'Pacifico', cursive;
-        "
-      >
-        ------ Testimonial ------
-      </h4>
-      <h2 style="font-weight: bold; font-size: 40px; color: black">
-        Our Clients Say!!!
-      </h2>
+      <h4 class="pacifico-style">------ Testimonial ------</h4>
+      <h2 class="testimonial-heading">Our Clients Say!!!</h2>
       <div class="container testimonials-card-alignment">
         <div class="testimonials-card">
           <img
@@ -469,14 +543,7 @@
               alt="client"
               class="user-img"
             />
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-              "
-            >
+            <div class="testimonial-user-content">
               <h2>John Doe</h2>
               <p>Master Chef</p>
             </div>
@@ -494,14 +561,7 @@
           </p>
           <div class="client-details">
             <img src="./assets/testimonial-2.png" alt="client" />
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-              "
-            >
+            <div class="testimonial-user-content">
               <h2>John Doe</h2>
               <p>Master Chef</p>
             </div>
@@ -519,14 +579,7 @@
           </p>
           <div class="client-details">
             <img src="./assets/testimonial-3.png" alt="client" />
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-              "
-            >
+            <div class="testimonial-user-content">
               <h2>John Doe</h2>
               <p>Master Chef</p>
             </div>
@@ -535,15 +588,22 @@
       </div>
     </section>
 
+    <button id="back-to-top-btn">
+      <img src="./assets/arrow-up.png" alt="arrow-up" />
+    </button>
+
     <!-- footer -->
     <footer class="footer-content">
       <div class="container align-footer-content">
         <p>© 2021 Restoran. All Rights Reserved.</p>
         <div class="footer-navs">
-          <a href="#menu" class="menu-link">HOME</a>
-          <a href="#about" class="about-link">CONTACT</a>
+          <a href="#menu-section" class="menu-link">HOME</a>
+          <a href="./page/contact-us.html" class="contact-us">CONTACT</a>
         </div>
       </div>
     </footer>
+    <script src="./javaScript/script.js"></script>
+    <!-- custom alert script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

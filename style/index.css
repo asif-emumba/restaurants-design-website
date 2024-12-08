@@ -75,23 +75,48 @@ body {
 .header-navs button:hover {
   cursor: pointer;
 }
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
 /* cover content styles */
 .cover-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 90px;
+  padding-top: 50px;
+  height: 100%;
 }
 .content-right {
-  height: 100%;
+  height: 60%;
+  width: 40%;
 }
 .content-right img {
   height: 100%;
   width: 100%;
+  object-fit: contain;
+  animation: rotate 8s linear infinite;
+}
+/* Keyframes for rotation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .content-left {
-  height: 50%;
+  height: 100%;
   width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .content-left h1 {
   font-size: 62px;
@@ -115,10 +140,14 @@ body {
   font-size: 16px;
   border: none;
 }
+.content-left button:hover {
+  cursor: pointer;
+}
 .align-cover-content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  height: 100%;
 }
 /* Card section */
 .card-container {
@@ -154,7 +183,7 @@ body {
 
 .info-cards h2 {
   font-weight: bold;
-  font-size: 20;
+  font-size: 20px;
   color: black;
   padding-bottom: 16px;
   padding-top: 24px;
@@ -185,29 +214,47 @@ body {
 .about-us-content-align {
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  align-items: start;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
 }
 
 .aboutus-grid-content {
   display: grid;
-  grid-template-columns: repeat(2, 0fr);
-  gap: 8px;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns, equally divided */
+  grid-template-rows: repeat(2, auto); /* 2 rows, height adjusts to content */
+  gap: 10px; /* Spacing between items */
+  width: 100%; /* Ensure it fits within the parent */
+  box-sizing: border-box; /* Include padding and border in size */
 }
 
 .align-end {
   align-self: end;
+  width: 75%;
 }
 
 .align-start {
   justify-self: end;
+  width: 75%;
 }
+.aboutus-grid-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%; /* Parent width */
 
+  box-sizing: border-box; /* Consistent sizing */
+}
+.aboutus-grid-content-img {
+  width: 100%; /* Ensure images scale within grid cells */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Optional: Ensure images fit neatly */
+}
 .aboutus-info-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 52px;
+  width: 60%;
   margin-top: 77px;
 }
 
@@ -258,6 +305,26 @@ body {
   margin-top: 33px;
   border: none;
 }
+.facts-text {
+  color: #fea116;
+  font-size: 48px;
+  font-weight: bold;
+  align-self: flex-end;
+  padding-left: 10px;
+}
+.facts-text span {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-end;
+  margin-left: 24px;
+}
+.facts-text-bold {
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
 
 /* popular-items */
 .popular-items-container {
@@ -281,6 +348,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   margin-top: 30px;
   border-bottom: solid 1px gray;
 }
@@ -291,7 +359,11 @@ body {
   align-items: center;
   height: 57px;
   width: 100%;
-  margin-left: 32px;
+  border: none;
+  background-color: transparent;
+}
+.tabs-buttons.active {
+  border-bottom: 4px solid #fea116; /* Add a bottom border to the active tab */
 }
 .tab-button-content {
   display: flex;
@@ -314,6 +386,27 @@ body {
   margin-top: 48px;
 
   width: 100%;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .side-menu {
   display: flex;
@@ -386,14 +479,13 @@ body {
 .booking-form {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: self-start;
   background-color: #0f172b;
   width: 50%;
   height: 100%;
   padding-left: 31px;
   padding-right: 31px;
-  padding-top: 95px;
 }
 .booking-form h2 {
   font-size: 40px;
@@ -449,7 +541,7 @@ body {
   justify-content: center;
   align-items: center;
   padding-top: 96px;
-  margin-bottom: 96px;
+  padding-bottom: 96px;
   background-color: #ffffff;
 }
 .align-team-content {
@@ -563,6 +655,12 @@ body {
 .testimonials-card:hover .testimonials-card-img {
   filter: brightness(0) invert(1);
 }
+.testimonial-user-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .footer-content {
   display: flex;
   flex-direction: row;
@@ -594,4 +692,349 @@ body {
   font-size: 15px;
   font-weight: 400;
   color: white;
+}
+
+#back-to-top-btn {
+  position: fixed;
+  bottom: 96px;
+  right: 20px;
+  display: none;
+  background-color: #fea116;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  transition: opacity 0.3s;
+  height: 48px;
+  width: 48px;
+  justify-content: center;
+}
+
+/* pacifioc style */
+.pacifico-style {
+  color: #fea116;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Pacifico", cursive;
+}
+.testimonial-heading {
+  font-weight: bold;
+  font-size: 40px;
+  color: black;
+}
+
+/* For devices with a max width of 768px (tablets, small screens) */
+@media (max-width: 1200px) {
+  body {
+    background-color: #fea116;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 85%;
+  }
+  .cover-content h1 {
+    font-size: 40px;
+  }
+  .cover-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .content-right {
+    width: 50%;
+    height: 100%;
+  }
+  .content-right img {
+    height: 80%;
+    width: 100%;
+    object-fit: contain;
+  }
+  .content-left {
+    width: 100%;
+  }
+  .aboutus-info-content h2 {
+    font-size: 30px;
+  }
+  .aboutus-info-content p {
+    font-size: 14px;
+  }
+  .popular-items-content-align h2 {
+    font-size: 30px;
+  }
+  .name-price h2 {
+    font-size: 18px;
+  }
+  .booking-form h2 {
+    font-size: 30px;
+  }
+  .team-content h2 {
+    font-size: 30px;
+  }
+  .testimonial-heading {
+    font-size: 30px;
+  }
+  .testimonial-user-content h2 {
+    font-size: 20px;
+  }
+  .team-card-img {
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+  }
+  .team-card h2 {
+    font-size: 18px;
+  }
+  .team-info-cards {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-us-content-align {
+    gap: 10px;
+  }
+  .aboutus-info-content h2 {
+    padding-bottom: 5px;
+  }
+  .facts {
+    height: 50px;
+  }
+  .facts-text {
+    font-size: 30px;
+  }
+  .facts-text-bold {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background-color: #fea116;
+  }
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+    width: 95%;
+  }
+  .cover-content h1 {
+    font-size: 40px;
+  }
+  .cover-content {
+    padding-top: 50px;
+  }
+  .content-right {
+    width: 50%;
+    height: 100%;
+  }
+  .content-right img {
+    height: 100%;
+    width: 90%;
+  }
+  .aboutus-info-content h2 {
+    font-size: 30px;
+  }
+  .aboutus-info-content p {
+    font-size: 14px;
+  }
+  .popular-items-content-align h2 {
+    font-size: 30px;
+  }
+  .name-price h2 {
+    font-size: 18px;
+  }
+  .booking-form h2 {
+    font-size: 30px;
+  }
+  .team-content h2 {
+    font-size: 30px;
+  }
+  .testimonial-heading {
+    font-size: 30px;
+  }
+  .testimonial-user-content h2 {
+    font-size: 20px;
+  }
+  .team-info-cards {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .team-card-img {
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+  }
+  .team-card h2 {
+    font-size: 18px;
+  }
+  .about-us-content-align {
+    gap: 10px;
+  }
+  .aboutus-info-content h2 {
+    padding-bottom: 5px;
+  }
+  .facts {
+    height: 50px;
+  }
+  .facts-text {
+    font-size: 30px;
+  }
+  .facts-text-bold {
+    font-size: 14px;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 660px) {
+  body {
+    background-color: #fea116;
+  }
+
+  .align-footer-content a {
+    padding-right: 10px;
+  }
+  .container {
+    width: 95%;
+    max-width: 660px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-navs {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    padding: 10px;
+  }
+
+  .header-navs.active {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-navs a {
+    padding: 0;
+  }
+  .cover-content h1 {
+    font-size: 40px;
+  }
+  /* Testimonial cards */
+  .testimonials-card-alignment {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .testimonial-heading {
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+  }
+  /* teams info */
+  .team-info-cards {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 20px;
+    display: flex;
+  }
+  .team-content {
+    padding-bottom: 96px;
+  }
+  .team-content h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+  }
+  .booking-content {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .booking-content img {
+    width: 100%;
+    height: 100%;
+  }
+  .booking-form {
+    width: 100%;
+    padding: 20px;
+  }
+  .booking-form h2 {
+    font-size: 30px;
+  }
+  .main-menu {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .popular-items-content-align h2 {
+    font-size: 25px;
+  }
+  .about-us-content-align {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+  .aboutus-info-content {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .aboutus-info-content h2 {
+    font-size: 30px;
+  }
+  .aboutus-info-content h4 {
+    font-size: 20px;
+  }
+  .aboutus-grid-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .align-end {
+    align-self: normal;
+    width: 100%;
+  }
+  .align-start {
+    align-self: normal;
+    width: 100%;
+  }
+  .card-alignment {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cover-content {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+    height: 100%;
+  }
+  .content-left {
+    width: 100%;
+    padding: 20px;
+    height: 100%;
+    align-self: center;
+    align-content: center;
+  }
+  .content-left h1 {
+    font-size: 40px;
+  }
+  .content-right {
+    display: none;
+  }
+  .team-card {
+    width: 100%;
+  }
 }
